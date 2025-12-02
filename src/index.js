@@ -4,6 +4,9 @@ const { PORT } = require("./config/server.config");
 
 const app = express();
 
+const routes = require("./routes/index");
+app.use("/api", routes);
+
 // Check server status
 app.use("/ping", (req, res) => {
   res.json({ message: "Server is up and running" });
