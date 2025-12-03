@@ -1,9 +1,9 @@
 const express = require("express");
 
-const apiRoutes = require("./v1/index");
+const v1 = require("./v1/index");
 
 const routes = express.Router();
 
-routes.use("/problems", apiRoutes);
+routes.use("/v1", v1);
 
 module.exports = routes;
