@@ -16,6 +16,12 @@ app.use("/ping", (req, res) => {
 const errorHandler = require("./utils/errorHandler");
 app.use(errorHandler);
 
-app.listen(PORT, () => {
+// Server and DB Connection
+
+const connectToDB = require("./config/db.config");
+
+app.listen(PORT, async () => {
   console.log(`Server listening to Port:${PORT}`);
+  await connectToDB();
+  console.log("Cooenction to DB is successful");
 });
